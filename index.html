@@ -1,222 +1,807 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-l="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aníbal Figueredo</title>
-<meta name="description" content="IE University student from Paraguay. I build products and sell them myself. Tokyo from January 2027.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aníbal Figueredo · Mission AF-27</title>
+<meta name="description" content="From Asunción to Madrid, building products and selling them myself. January 2027: Tokyo. What's next?">
+<meta property="og:title" content="Aníbal Figueredo · What's next?">
+<meta property="og:description" content="From Asunción to Madrid, building products and selling them myself. January 2027: Tokyo. What's next?">
+<meta property="og:image" content="https://heilko.github.io/img/og.jpg">
+<meta property="og:url" content="https://heilko.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2230%22 fill=%22%230A0F24%22/%3E%3Cpath d=%22M32 10c8 8 10 18 9 30H23c-1-12 1-22 9-30z%22 fill=%22%23FBF8F1%22/%3E%3Cpath d=%22M23 34l-7 12 8-3zM41 34l7 12-8-3z%22 fill=%22%23FF6B5B%22/%3E%3Ccircle cx=%2232%22 cy=%2228%22 r=%224%22 fill=%22%235AA9E6%22/%3E%3Cpath d=%22M27 42h10l-5 12z%22 fill=%22%23FFD166%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<noscript><style>.launch{display:none!important}.story{visibility:visible!important}.hud{opacity:1!important}</style></noscript>
 <style>
-:root{--bg:#F6F4EF;--ink:#141821;--mute:#5B6170;--line:#E2DFD6;--card:#fff;--accent:#0F5E4F;--red:#C8323F;--navy:#0E1B33}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1320;--ink:#EDEFF4;--mute:#9AA3B5;--line:#263049;--card:#161C2C;--accent:#4FC3A5;--red:#FF6B78;--navy:#E8ECF5}}
+/* One night-sky world: a rocket launch opens a scroll story. A cartoon globe stays pinned beside the text and flies the route
+   Asunción → England → Madrid → … and ends zoomed on Japan with a question mark. */
+:root{
+  --bg:#0A0F24; --ink:#F4F1E8; --mute:#A9B1CC; --sun:#FFD166; --flame:#FF8A3D; --coral:#FF6B5B; --mint:#7ED7B5;
+  --sky:#5AA9E6; --sand:#F6E7C1; --navy:#16204A; --line:rgba(244,241,232,.14);
+  --disp:"Bricolage Grotesque","Avenir Next","Helvetica Neue",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI","Helvetica Neue",sans-serif;
+  --jp:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  color-scheme:dark;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",-apple-system,"Segoe UI",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+html{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html.js:not(.launched){overflow:hidden}
+html[data-l="ja"] body{font-family:var(--jp)}
+html[data-l="en"] .ja, html[data-l="ja"] .en{display:none}
 a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.logo{font-weight:800;letter-spacing:.02em}
-.lang{display:flex;border:1px solid var(--line);border-radius:30px;overflow:hidden}
-.lang button{background:none;border:0;color:var(--mute);font:600 13px/1 -apple-system,sans-serif;padding:8px 14px;cursor:pointer}
+button{font:inherit;color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.mono{font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase}
+
+/* Sky */
+.sky{position:fixed;left:0;right:0;top:-20vh;height:160vh;z-index:0;pointer-events:none;will-change:transform;
+  background-image:radial-gradient(1.6px 1.6px at 20px 30px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 120px 80px,#ffffffaa 50%,transparent 51%),
+  radial-gradient(1.2px 1.2px at 210px 170px,#ffffffcc 50%,transparent 51%),radial-gradient(1px 1px at 300px 40px,#ffffff88 50%,transparent 51%),
+  radial-gradient(1px 1px at 345px 230px,#ffffff77 50%,transparent 51%),radial-gradient(1.8px 1.8px at 64px 262px,#fff 50%,transparent 51%);
+  background-size:380px 300px;opacity:.65}
+.sky.b{background-size:610px 520px;opacity:.4}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(55% 45% at 82% 18%,rgba(90,169,230,.16),transparent 70%),radial-gradient(45% 40% at 8% 92%,rgba(255,107,91,.11),transparent 70%)}
+
+/* Launch pad */
+.launch{position:fixed;inset:0;z-index:40;overflow:hidden;transition:opacity 1s ease;
+  background:radial-gradient(120% 60% at 50% 115%,rgba(255,138,61,.24) 0%,rgba(10,15,36,0) 60%),var(--bg)}
+.launch.gone{opacity:0;pointer-events:none}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pad-top{position:absolute;top:calc(env(safe-area-inset-top,0px) + 20px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--mute)}
+.pad-top b{color:var(--sun);font-weight:600}
+.pad-mid{position:absolute;top:18vh;left:0;right:0;text-align:center;padding:0 20px}
+.pad-mid h1{font-family:var(--disp);font-weight:800;font-size:clamp(34px,6vw,64px);line-height:1.02;letter-spacing:-.02em}
+html[data-l="ja"] .pad-mid h1{font-family:var(--jp);font-weight:900;letter-spacing:0;font-size:clamp(28px,5vw,52px);line-height:1.25}
+.pad-mid h1 em{font-style:normal;color:var(--coral)}
+.pad-mid p{margin-top:12px;color:var(--mute);font-size:15px}
+.ignite .pad-mid{opacity:0;transition:opacity .4s}
+.ground{position:absolute;left:0;right:0;bottom:0;height:17vh;background:linear-gradient(180deg,rgba(20,24,34,0) 0%,#0b0f1e 30%,#070a15 100%);border-top:1px solid var(--line)}
+.tower{position:absolute;bottom:17vh;left:calc(50% - 116px);width:46px;height:250px;opacity:.55}
+.rocket{position:absolute;left:50%;bottom:calc(17vh - 6px);transform:translateX(-50%);background:none;border:0;padding:0;cursor:pointer;width:120px;height:300px;will-change:transform}
+.rocket svg{width:100%;height:100%;overflow:visible;display:block}
+.rocket:hover .body-shell{filter:drop-shadow(0 0 14px rgba(255,209,102,.4))}
+.ignite .rocket-inner{animation:shake .09s linear infinite}
+.lift .rocket-inner{animation:shake .14s linear infinite}
+@keyframes shake{0%{transform:translate(0,0)}25%{transform:translate(-1.4px,.6px)}50%{transform:translate(1.2px,-.5px)}75%{transform:translate(-.6px,-.8px)}100%{transform:translate(0,0)}}
+.flame{--fs:0;transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0)}
+.ignite .flame{--fs:.55;animation:flick .08s linear infinite alternate}
+.lift .flame{--fs:1.35}
+@keyframes flick{from{transform:scaleY(var(--fs)) scaleX(1)}to{transform:scaleY(calc(var(--fs)*.8)) scaleX(.9)}}
+.pad-bottom{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);left:0;right:0;text-align:center;padding:0 16px}
+.cta-blink{font-size:13px;color:var(--sun);animation:breathe 2.4s ease-in-out infinite}
+.ignite .pad-bottom{visibility:hidden}
+@keyframes breathe{50%{opacity:.45}}
+.skip{background:none;border:0;color:var(--mute);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:13px;margin-top:10px}
+.count{position:absolute;top:22vh;left:0;right:0;text-align:center;font-family:var(--disp);font-weight:800;font-size:clamp(64px,14vw,150px);line-height:1;opacity:0;letter-spacing:-.03em;pointer-events:none}
+html[data-l="ja"] .count{font-family:var(--jp);font-weight:900}
+.count.pop{animation:pop .6s ease-out}
+@keyframes pop{0%{opacity:0;transform:scale(1.4)}25%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.92)}}
+
+/* Language switch */
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:rgba(10,15,36,.6)}
+.lang button{background:none;border:0;color:var(--mute);font:600 12px/1 var(--mono);letter-spacing:.06em;padding:8px 12px;cursor:pointer}
 .lang button.on{background:var(--ink);color:var(--bg)}
-[data-l="en"] .ja,[data-l="ja"] .en{display:none}
 
-.hero{padding:56px 0 40px}
-.kick{font:700 13px/1 -apple-system,sans-serif;letter-spacing:.2em;color:var(--accent);text-transform:uppercase}
-h1{font-size:clamp(26px,6.8vw,64px);line-height:1.15;font-weight:800;margin-top:18px;letter-spacing:-.01em}
-h1 em{font-style:normal;color:var(--red)}
-.lead{font-size:clamp(16px,2vw,19px);color:var(--mute);max-width:640px;margin-top:20px}
-.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.pill{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:7px 14px;font-size:14px}
-.pill b{color:var(--accent)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;border:1px solid var(--ink)}
-.btn.p{background:var(--ink);color:var(--bg)}
+/* HUD */
+.hud{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:calc(env(safe-area-inset-top,0px) + 14px) 18px 26px;font-size:12px;color:var(--mute);
+  background:linear-gradient(180deg,rgba(10,15,36,.94) 0%,rgba(10,15,36,.78) 55%,rgba(10,15,36,0) 100%);
+  opacity:0;transform:translateY(-8px);transition:opacity .8s ease 1.2s,transform .8s ease 1.2s;pointer-events:none}
+body.launched .hud{opacity:1;transform:none;pointer-events:auto}
+.hud .id{display:flex;align-items:center;gap:14px}
+.hud .id b{color:var(--ink);font-weight:600}
+.route{display:flex;gap:7px;align-items:center}
+.route span{opacity:.38;transition:opacity .35s,color .35s}
+.route span.done{opacity:.75}
+.route span.on{opacity:1;color:var(--sun)}
+.route i{font-style:normal;opacity:.3}
+.route .q{color:var(--coral)}
 
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:20px 0 70px}
-.nums div{background:var(--card);padding:22px 20px}
-.nums b{display:block;font:800 clamp(30px,4vw,44px)/1 -apple-system,sans-serif;color:var(--accent)}
-.nums span{display:block;color:var(--mute);font-size:14px;margin-top:8px}
+/* Story layout */
+.story{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);visibility:hidden}
+body.launched .story{visibility:visible}
+.globe-col{grid-column:2;grid-row:1;position:sticky;top:0;height:100vh;height:100svh;align-self:start;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%);mask-image:linear-gradient(90deg,transparent 0,#000 9%)}
+#globe{width:100%;height:100%;display:block}
+.steps{grid-column:1;grid-row:1;padding:0 clamp(20px,4.5vw,72px) 34vh}
+.step{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:16vh 0;max-width:540px;margin-left:auto}
+.js .step>*{opacity:.16;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .step.on>*{opacity:1;transform:none}
+.js .step.on>*:nth-child(2){transition-delay:.07s}
+.js .step.on>*:nth-child(3){transition-delay:.14s}
+.js .step.on>*:nth-child(4){transition-delay:.21s}
+.js .step.on>*:nth-child(5){transition-delay:.28s}
+.kick{font-size:12px;color:var(--sun);display:flex;align-items:center;gap:10px}
+.kick::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.step h2{font-family:var(--disp);font-weight:800;font-size:clamp(34px,4.4vw,58px);line-height:1.04;letter-spacing:-.02em;margin:14px 0 16px;text-wrap:balance}
+html[data-l="ja"] .step h2,html[data-l="ja"] .pad-mid h1,html[data-l="ja"] .pad-mid p{word-break:keep-all;overflow-wrap:anywhere}
+html[data-l="ja"] .step h2{font-family:var(--jp);font-weight:900;letter-spacing:.01em;line-height:1.3;font-size:clamp(28px,3.4vw,44px)}
+.step h2 em{font-style:normal;color:var(--coral)}
+.step p{color:var(--mute);font-size:clamp(16px,1.35vw,19px);max-width:46ch}
+.step p b{color:var(--ink);font-weight:600}
+.hint{margin-top:30px;font-size:12px;color:var(--mute);display:flex;align-items:center;gap:10px}
+.hint i{display:inline-block;width:18px;height:28px;border:2px solid var(--mute);border-radius:10px;position:relative}
+.hint i::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--sun);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
 
-h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:800;display:flex;align-items:center;gap:12px;margin-bottom:24px}
-h2::after{content:"";flex:1;height:1px;background:var(--line)}
-section{margin-bottom:72px}
+/* Scrapbook pieces */
+.snap{position:relative;margin-top:34px;background:#FBF8F1;padding:10px 10px 12px;border-radius:6px;color:#3A3F4B;max-width:450px;
+  box-shadow:7px 9px 0 rgba(3,5,15,.55),0 22px 50px rgba(0,0,0,.35);transform:rotate(-2deg);transition:transform .4s}
+.snap:hover{transform:rotate(0deg) translateY(-4px)}
+.snap.r{transform:rotate(2deg)}
+.snap img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:3px;background:#e6e2d8}
+.snap figcaption{font:500 11.5px/1.4 var(--mono);letter-spacing:.06em;color:#5B6170;padding-top:8px;display:flex;justify-content:space-between;gap:10px}
+.snap::before{content:"";position:absolute;top:-11px;left:50%;width:96px;height:24px;margin-left:-48px;background:rgba(255,209,102,.72);transform:rotate(3deg);border-radius:2px}
+.flag{display:inline-block;width:18px;height:12px;border-radius:2px;vertical-align:-1px;margin-left:6px;background:linear-gradient(#D52B1E 0 33.3%,#fff 33.3% 66.6%,#0038A8 66.6%)}
 
-.proj{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
-.proj:nth-of-type(even) .shot{order:2}
-.shot{border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 18px 50px rgba(14,27,51,.16);border:1px solid var(--line);transition:transform .35s}
-.shot:hover{transform:translateY(-4px) rotate(-.4deg)}
-.shot .bar{height:28px;display:flex;gap:6px;align-items:center;padding-left:12px;background:var(--line)}
-.shot .bar i{width:9px;height:9px;border-radius:50%;background:var(--mute);opacity:.45}
-.shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top}
-.tag{font:700 12px/1 -apple-system,sans-serif;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
-.proj h3{font-size:clamp(21px,2.6vw,28px);line-height:1.35;margin:10px 0 12px}
-.proj p{color:var(--mute);font-size:15.5px}
-.proj .stat{display:flex;gap:22px;margin:16px 0}
-.proj .stat b{display:block;font:800 26px/1 -apple-system,sans-serif;color:var(--ink)}
-.proj .stat span{font-size:12.5px;color:var(--mute)}
-.lesson{border-left:3px solid var(--red);padding-left:12px;margin-top:12px;font-size:14.5px}
-.link{display:inline-block;margin-top:14px;font:600 14px/1 ui-monospace,Menlo,monospace;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.me{max-width:300px}
+.me .ph{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,#5AA9E6,#16204A)}
+.me .ph img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 20%}
+.me .avatar{display:none;position:absolute;inset:0;place-items:center}
+.me .ph.none .avatar{display:grid}
+.avatar span{width:62%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--sand);color:var(--navy);
+  font:800 clamp(40px,7vw,64px)/1 var(--disp);border:4px solid var(--navy);box-shadow:6px 7px 0 rgba(3,5,15,.5)}
 
-.tl{display:grid;gap:0}
-.tl div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
-.tl time{color:var(--mute);font-size:14px}
-.tl b{display:block}
-.tl span{color:var(--mute);font-size:14.5px}
+.stamps{display:flex;margin-top:38px;padding-left:6px}
+.stamps svg{width:clamp(112px,12vw,150px);height:auto;filter:drop-shadow(6px 8px 0 rgba(3,5,15,.5));transition:transform .4s}
+.stamps svg:nth-child(1){transform:rotate(-7deg)}
+.stamps svg:nth-child(2){transform:rotate(4deg) translateY(14px);margin-left:-22px}
+.stamps svg:nth-child(3){transform:rotate(-3deg);margin-left:-22px}
+.stamps svg:hover{transform:rotate(0) translateY(-6px)}
 
-.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
-.box h4{font-size:16px;margin-bottom:10px}
-.bars div{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:12px;margin:10px 0;font-size:14.5px}
-.bars i{display:block;height:8px;border-radius:8px;background:var(--line);position:relative;overflow:hidden}
-.bars i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--accent);border-radius:8px}
-.box ul{list-style:none;color:var(--mute);font-size:14.5px}
-.box li{padding:5px 0}
+.cmp{margin-top:34px;max-width:430px;background:#FBF8F1;color:var(--navy);border-radius:12px;overflow:hidden;transform:rotate(1.5deg);box-shadow:7px 9px 0 rgba(3,5,15,.55)}
+.cmp-h{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#ECE6D8;font:600 12px/1 var(--mono);letter-spacing:.08em}
+.cmp-h .dots{display:flex;gap:5px}.cmp-h .dots i{width:9px;height:9px;border-radius:50%;background:#C9C1AF}
+.cmp .row{display:grid;grid-template-columns:96px 1fr 22px;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid #E6DFCF;font-weight:700;font-size:15px}
+.cmp .row i{height:12px;border-radius:8px;background:#E2DBC9;position:relative;overflow:hidden}
+.cmp .row i::after{content:"";position:absolute;inset:0;width:0;border-radius:8px;background:#A9B1CC;transition:width 1s cubic-bezier(.2,.7,.2,1) .4s}
+.step.on .cmp .row i::after{width:var(--w)}
+.cmp .row.win{background:#E4F6EE}
+.cmp .row.win i::after{background:var(--mint)}
+.cmp .row b{width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--navy);display:grid;place-items:center;font-size:13px;border:2px solid var(--navy);opacity:0;transform:scale(.3);transition:all .4s cubic-bezier(.3,1.6,.5,1) 1.3s}
+.step.on .cmp .row b{opacity:1;transform:none}
+.cmp-f{padding:12px 16px;border-top:1px solid #E6DFCF;font:600 12.5px/1 var(--mono);letter-spacing:.06em;color:#0F7A5C}
 
-.contact{background:var(--navy);color:var(--bg);border-radius:18px;padding:44px 36px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.contact h3{font-size:clamp(22px,3vw,32px);line-height:1.3}
-.contact .btn{border-color:var(--bg);color:var(--bg)}
-.contact .btn.p{background:var(--bg);color:var(--navy)}
-footer{color:var(--mute);font-size:13px;padding:36px 0 50px;text-align:center}
+.lp{max-width:460px}
+.bubble{position:absolute;right:-14px;bottom:44px;display:flex;align-items:center;gap:8px;background:var(--mint);color:var(--navy);border:2.5px solid var(--navy);
+  border-radius:16px 16px 4px 16px;padding:8px 14px;font-weight:800;font-size:14px;box-shadow:5px 6px 0 rgba(3,5,15,.55);
+  opacity:0;transform:scale(.4) translateY(10px);transform-origin:100% 100%;transition:all .5s cubic-bezier(.3,1.6,.5,1) .9s}
+.step.on .bubble{opacity:1;transform:none}
+.bubble b{width:20px;height:20px;border-radius:50%;background:var(--navy);color:var(--mint);display:grid;place-items:center;font-size:12px}
 
-@keyframes up{from{transform:translateY(14px)}to{transform:none}}
-.js .rv{animation:up .6s ease-out both}
-@media (prefers-reduced-motion:reduce){.js .rv{animation:none}.shot{transition:none}}
-@media (max-width:760px){
- .nums{grid-template-columns:repeat(2,1fr)}
- .proj{grid-template-columns:1fr;gap:18px}
- .proj:nth-of-type(even) .shot{order:0}
- .tl div{grid-template-columns:1fr;gap:4px}
- .two{grid-template-columns:1fr}
- .contact{padding:32px 22px}
+.funnel{margin-top:30px;display:grid;gap:10px;max-width:470px}
+.fb{position:relative;display:flex;align-items:baseline;gap:14px;padding:12px 16px;border-radius:12px;background:rgba(244,241,232,.06);border:1px solid var(--line);overflow:hidden}
+.fb::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,rgba(255,209,102,.26),rgba(255,209,102,.08));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.step.on .fb::before{width:var(--w)}
+.fb:nth-child(2)::before{transition-delay:.15s}.fb:nth-child(3)::before{transition-delay:.3s}
+.fb:nth-child(4)::before{transition-delay:.45s;background:linear-gradient(90deg,rgba(255,107,91,.45),rgba(255,107,91,.12))}
+.fb b{position:relative;font:800 clamp(28px,3vw,38px)/1 var(--disp);min-width:2.2ch;color:var(--ink);font-variant-numeric:tabular-nums}
+.fb:nth-child(4) b{color:var(--coral)}
+.fb span{position:relative;color:var(--mute);font-size:15px}
+.lesson{margin-top:18px;border-left:3px solid var(--coral);padding-left:12px;color:var(--ink);font-size:15.5px;max-width:44ch}
+
+.fan{position:relative;margin-top:40px;height:clamp(230px,24vw,300px);max-width:500px}
+.fan .snap{position:absolute;margin:0;width:78%}
+.fan .snap:first-child{left:0;top:0;transform:rotate(-4deg)}
+.fan .snap:last-child{right:0;top:54px;transform:rotate(3.5deg)}
+.fan .snap:hover{z-index:2;transform:rotate(0) translateY(-6px)}
+.chip{display:inline-block;background:var(--navy);color:var(--sun);font:600 11px/1 var(--mono);letter-spacing:.08em;padding:5px 8px;border-radius:6px}
+
+.isp img{object-position:center 60%}
+.go{display:inline-flex;align-items:center;gap:8px;margin-top:22px;text-decoration:none;font-weight:700;font-size:15px;color:var(--sun);border-bottom:2px solid currentColor;padding-bottom:2px}
+
+/* Final */
+.board{margin-top:6px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(10,15,36,.7);max-width:440px;font-family:var(--mono)}
+.board div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:11px 16px;border-top:1px solid var(--line);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.board div:first-child{border-top:0}
+.board span{color:var(--mute)}
+.board b{color:var(--ink);font-weight:600}
+.board .q b{color:var(--coral);animation:breathe 1.4s ease-in-out infinite}
+.final h2{font-size:clamp(44px,6vw,84px)!important;margin-top:26px!important}
+.final h2 .qm{display:inline-block;color:var(--coral);transform-origin:50% 85%;animation:wob 2.6s ease-in-out infinite;margin-left:.06em}
+@keyframes wob{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(11deg) translateY(-6px)}}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:15.5px;padding:14px 20px;border-radius:14px;border:2.5px solid var(--ink);transition:transform .2s,box-shadow .2s}
+.btn.p{background:var(--coral);border-color:var(--navy);color:var(--navy);box-shadow:5px 6px 0 var(--navy)}
+.btn.p:hover{transform:translate(-2px,-2px);box-shadow:7px 8px 0 var(--navy)}
+.btn.s{color:var(--ink);border-color:var(--line)}
+.btn.s:hover{border-color:var(--ink)}
+.again{margin-top:26px;background:none;border:0;color:var(--mute);cursor:pointer;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.petals{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:0;transition:opacity 1.2s}
+body.fin .petals{opacity:1}
+.petals span{position:absolute;top:-6vh;width:12px;height:12px;border-radius:80% 0 80% 0;background:#FFB7C5;opacity:.85;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate(0,-5vh) rotate(0)}50%{transform:translate(var(--x),55vh) rotate(200deg)}100%{transform:translate(calc(var(--x)*-.4),112vh) rotate(420deg)}}
+footer{position:relative;z-index:2;text-align:center;color:var(--mute);font-size:12px;padding:0 0 40px}
+
+@media (max-width:820px){
+  .story{display:block}
+  .globe-col{position:sticky;top:0;height:46vh;height:46svh;z-index:3;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent);
+    background:linear-gradient(180deg,var(--bg) 0%,rgba(10,15,36,.96) 80%,rgba(10,15,36,0) 100%)}
+  .steps{padding:0 20px 40vh}
+  .step{min-height:96vh;min-height:96svh;justify-content:flex-start;padding:5vh 0 12vh;margin:0;max-width:none}
+  .hud{padding-left:14px;padding-right:14px}
+  .hud .id b{display:none}
+  .pad-mid{top:15vh}
+  .pad-top .wide{display:none}
+  .snap,.cmp,.funnel{max-width:100%}
+  .bubble{right:6px}
+  .fan{height:62vw}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .petals{display:none}
 }
 </style>
 </head>
-<body data-l="ja">
-<div class="wrap">
-<nav>
-  <div class="logo">Aníbal Figueredo</div>
-  <div class="lang"><button data-set="ja" class="on">日本語</button><button data-set="en">EN</button></div>
-</nav>
+<body>
+<div class="sky" aria-hidden="true"></div><div class="sky b" aria-hidden="true"></div><div class="nebula" aria-hidden="true"></div>
 
-<header class="hero rv">
-  <div class="kick">Madrid → Tokyo · 2027</div>
-  <h1><span class="ja">自分でプロダクトを作り、<br><em>自分で売る。</em></span><span class="en">I build products<br><em>and sell them myself.</em></span></h1>
-  <p class="lead"><span class="ja">IE大学（マドリード）で経営学を学ぶ、パラグアイ出身の学生です。2027年1月から6か月間、東京でフルタイムのインターンシップを希望しています。それまではマドリードからリモートでも働けます。</span><span class="en">Business Administration student at IE University in Madrid, from Paraguay. Full-time in Tokyo for six months from January 2027, and available remotely from Madrid before then.</span></p>
-  <div class="pills">
-    <div class="pill"><b>ES</b> <span class="ja">ネイティブ</span><span class="en">Native</span></div>
-    <div class="pill"><b>EN</b> <span class="ja">バイリンガル</span><span class="en">Bilingual</span></div>
-    <div class="pill"><b>JP</b> <span class="ja">初級・毎日勉強中</span><span class="en">Basic, studying daily</span></div>
-    <div class="pill">Python · Claude API · HubSpot</div>
+<!-- Launch pad -->
+<div class="launch" id="launch">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="pad-top mono">
+    <span><b>Mission AF-27</b><span class="wide"> · Asunción → Madrid</span> → <b style="color:var(--coral)">???</b></span>
+    <span class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></span>
   </div>
-  <div class="cta">
-    <a class="btn p" href="mailto:anibalflln@gmail.com"><span class="ja">メールで連絡</span><span class="en">Email me</span></a>
-    <a class="btn" href="#work"><span class="ja">実績を見る</span><span class="en">See the work</span></a>
+  <div class="pad-mid">
+    <h1><span class="en">Every mission<br>needs a <em>launch</em>.</span><span class="ja">どんなミッションも、<br><em>打ち上げ</em>から<wbr>始まる。</span></h1>
+    <p><span class="en">This one starts in Asunción, Paraguay.</span><span class="ja">このミッションは、<wbr>パラグアイの<wbr>アスンシオンから。</span></p>
   </div>
+  <div class="count" id="count" aria-live="assertive"></div>
+  <div class="ground" aria-hidden="true"></div>
+  <svg class="tower" viewBox="0 0 46 250" aria-hidden="true"><g stroke="#A9B1CC" stroke-width="1.5" fill="none"><path d="M6 250 V10 M40 250 V10 M6 10 H40"/><path d="M6 30 L40 60 M40 60 L6 90 M6 90 L40 120 M40 120 L6 150 M6 150 L40 180 M40 180 L6 210 M6 210 L40 240"/><path d="M40 70 H64 M40 150 H64"/></g></svg>
+  <button class="rocket" id="rocket" type="button" aria-label="Launch the rocket and start the story">
+    <svg viewBox="0 0 120 300" aria-hidden="true">
+      <defs>
+        <linearGradient id="hull" x1="0" x2="1"><stop offset="0" stop-color="#C9C3B4"/><stop offset=".45" stop-color="#FBF8F1"/><stop offset="1" stop-color="#D8D2C2"/></linearGradient>
+        <radialGradient id="fire" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#FFF6D6"/><stop offset=".35" stop-color="#FFD166"/><stop offset=".7" stop-color="#FF8A3D"/><stop offset="1" stop-color="#FF8A3D" stop-opacity="0"/></radialGradient>
+      </defs>
+      <g class="rocket-inner">
+        <g class="flame"><ellipse cx="60" cy="236" rx="15" ry="58" fill="url(#fire)"/><ellipse cx="60" cy="226" rx="7" ry="26" fill="#FFF6D6"/></g>
+        <g class="body-shell" stroke="#16204A" stroke-width="3" stroke-linejoin="round">
+          <path d="M34 150 L12 190 V206 L34 196 Z" fill="#FF6B5B"/>
+          <path d="M86 150 L108 190 V206 L86 196 Z" fill="#FF6B5B"/>
+          <path d="M60 8 C78 30 86 62 86 100 V196 H34 V100 C34 62 42 30 60 8 Z" fill="url(#hull)"/>
+          <path d="M60 8 C70 20 76 34 80 50 H40 C44 34 50 20 60 8 Z" fill="#FF6B5B"/>
+          <circle cx="60" cy="92" r="12" fill="#5AA9E6"/>
+          <path d="M42 196 H78 L72 212 H48 Z" fill="#5A6475"/>
+          <text x="60" y="137" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" fill="#16204A" stroke="none" letter-spacing="1">AF-27</text>
+        </g>
+      </g>
+    </svg>
+  </button>
+  <div class="pad-bottom">
+    <div class="cta-blink mono"><span class="en">Tap the rocket to launch</span><span class="ja">ロケットをタップして発射</span></div>
+    <button class="skip" id="skip" type="button"><span class="en">or skip the launch</span><span class="ja">スキップする</span></button>
+  </div>
+</div>
+
+<!-- HUD -->
+<header class="hud mono" aria-label="Mission status">
+  <div class="id"><b>AF-27</b>
+    <nav class="route" id="route" aria-label="Route"><span data-c="0">ASU</span><i>›</i><span data-c="1">UK</span><i>›</i><span data-c="2">MAD</span><i>›</i><span data-c="3" class="q">???</span></nav>
+  </div>
+  <span class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></span>
 </header>
 
-<div class="nums rv">
-  <div><b>69</b><span class="ja">見込み客リスト（クリニック）</span><span class="en">clinics on my prospect list</span></div>
-  <div><b>32</b><span class="ja">テレアポ（マドリード）</span><span class="en">cold calls in Madrid</span></div>
-  <div><b>9</b><span class="ja">訪問営業（アスンシオン）</span><span class="en">in-person visits in Asunción</span></div>
-  <div><b>5</b><span class="ja">関心を示したクリニック</span><span class="en">clinics interested</span></div>
-</div>
+<main class="story" id="top" tabindex="-1">
+  <div class="globe-col" aria-hidden="true"><canvas id="globe"></canvas></div>
 
-<section id="work">
-  <h2><span class="ja">実績</span><span class="en">Work</span></h2>
+  <div class="steps">
+    <!-- 01 -->
+    <section class="step" data-i="0">
+      <div class="kick mono">01 · Asunción, Paraguay</div>
+      <h2><span class="en">Hola.<br>I'm <em>Aníbal</em>.</span><span class="ja">こんにちは、<br><em>アニバル</em>です。</span></h2>
+      <p><span class="en">I grew up in Asunción, Paraguay. Today I study business at IE University in Madrid, and I like to <b>build things, then sell them myself</b>.</span><span class="ja">パラグアイのアスンシオン出身。いまはマドリードのIE大学で経営学を学びながら、<b>自分で作って、自分で売る</b>ことを続けています。</span></p>
+      <figure class="snap me">
+        <div class="ph"><img src="img/me.jpg" alt="Aníbal Figueredo" onerror="this.parentNode.classList.add('none');this.remove()"><div class="avatar" aria-hidden="true"><span>AF</span></div></div>
+        <figcaption><span>Asunción<span class="flag" role="img" aria-label="Paraguay"></span></span><span>→ Madrid</span></figcaption>
+      </figure>
+      <div class="hint mono"><i></i><span class="en">Scroll to follow the flight</span><span class="ja">スクロールで旅をたどる</span></div>
+    </section>
 
-  <article class="proj rv">
-    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/leadpilot.jpg" alt="LeadPilot website with the chat assistant" loading="lazy"></div>
-    <div>
-      <div class="tag">LeadPilot · 2026</div>
-      <h3><span class="ja">AI予約アシスタントを開発し、自分で営業</span><span class="en">An AI booking assistant, built and sold myself</span></h3>
-      <p><span class="ja">クリニックのウェブサイト向けのClaude搭載チャット。訪問者の質問に答え、見込み度を判定し、そのまま予約まで完了します。オーナー用ダッシュボードとWhatsApp連携付き。</span><span class="en">A Claude-powered chat for clinic websites. It answers visitors, scores each lead and books the appointment, with an owner dashboard and a WhatsApp channel.</span></p>
-      <p class="lesson"><span class="ja">学び：お客様は自分の業務で動くのを見て初めて決断する。デモとフォローアップが勝負。</span><span class="en">Lesson: customers commit once they see it working in their own business. The demo and the follow-up win the deal.</span></p>
-      <a class="link" href="https://github.com/Heilko/leadpilot">github.com/Heilko/leadpilot</a>
-    </div>
-  </article>
+    <!-- 02 -->
+    <section class="step" data-i="1">
+      <div class="kick mono">02 · 2021 – 2024</div>
+      <h2><span class="en">I left home <em>early</em>.</span><span class="ja">早くから、<br><em>外の世界</em>へ。</span></h2>
+      <p><span class="en">In 2021 I spent six months at a school in England. In 2023 I moved to Madrid for university, and in 2024 I started my BBA at IE.</span><span class="ja">2021年、イギリスの学校で6か月を過ごしました。2023年に大学進学でマドリードへ。2024年からIE大学で経営学を学んでいます。</span></p>
+      <div class="stamps" id="stamps"></div>
+    </section>
 
-  <article class="proj rv">
-    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/scanner.jpg" alt="Prospect report built for Modelia" loading="lazy"></div>
-    <div>
-      <div class="tag">Catalogue scanner · 2026</div>
-      <h3><span class="ja">AIファッション企業向けの見込み客発掘ツール</span><span class="en">A prospecting tool for an AI fashion startup</span></h3>
-      <p><span class="ja">AI画像のスタートアップModeliaのために自主開発。ファッションECサイトを巡回して商品写真を分類し、各ブランドが削減できる撮影コストを試算します。</span><span class="en">Built on spec for Modelia. It crawls fashion e-commerce sites, classifies the product photos and estimates what each brand could save on photography.</span></p>
-      <div class="stat"><div><b>68/69</b><span class="ja">手作業での分類チェック</span><span class="en">hand-checked classifier</span></div><div><b>70</b><span class="ja">調査したブランド</span><span class="en">brands sized</span></div></div>
-      <p class="lesson"><span class="ja">学び：数字を信じる前に、まずモデルを確かめる。</span><span class="en">Lesson: check the model before you trust the number.</span></p>
-      <a class="link" href="https://github.com/Heilko/catalogue-scanner">github.com/Heilko/catalogue-scanner</a>
-    </div>
-  </article>
+    <!-- 03 -->
+    <section class="step" data-i="2">
+      <div class="kick mono">03 · 2025 · Asunción</div>
+      <h2><span class="en">My first real job: <em>picking the right software</em>.</span><span class="ja">初めての<wbr>仕事は、<br><em>ソフト選び</em>。</span></h2>
+      <p><span class="en">Back home at Blindesa, a law consultancy, I compared the big ERP and CRM vendors for the firm's clients and recommended Odoo to the CEO.</span><span class="ja">地元の法律コンサルティング会社Blindesaで、顧客向けのERP・CRMベンダーを比較し、CEOにOdooを提案しました。</span></p>
+      <div class="cmp" aria-label="Vendor shortlist with Odoo recommended">
+        <div class="cmp-h"><span class="dots"><i></i><i></i><i></i></span><span class="en">ERP / CRM shortlist</span><span class="ja">ERP / CRM 比較表</span></div>
+        <div class="row"><span>Vendor A</span><i style="--w:60%"></i><span></span></div>
+        <div class="row"><span>Vendor B</span><i style="--w:46%"></i><span></span></div>
+        <div class="row win"><span>Odoo</span><i style="--w:90%"></i><b>✓</b></div>
+        <div class="cmp-f"><span class="en">→ Recommended to the CEO</span><span class="ja">→ CEOに提案</span></div>
+      </div>
+    </section>
 
-  <article class="proj rv">
-    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/boutique.jpg" alt="Demo boutique site made with Boutique Factory" loading="lazy"></div>
-    <div>
-      <div class="tag">Boutique Factory · 2026</div>
-      <h3><span class="ja">ブティック向けウェブサイト自動生成</span><span class="en">A website generator for small boutiques</span></h3>
-      <p><span class="ja">ブランド情報のファイル1つと写真から、Shopifyのストアフロント（リアルタイム在庫・カート・決済）付きのサイトを丸ごと生成。バルセロナのメンズブティック向けのデモも制作しました。</span><span class="en">One brand file plus photos becomes a full site with a Shopify storefront: live stock, cart and checkout. I used it for an on-spec demo for a menswear boutique in Barcelona.</span></p>
-      <a class="link" href="https://github.com/Heilko/boutique-factory">github.com/Heilko/boutique-factory</a>
-    </div>
-  </article>
+    <!-- 04 -->
+    <section class="step" data-i="3">
+      <div class="kick mono">04 · 2026 · Madrid</div>
+      <h2><span class="en">Then I built <em>my own product</em>.</span><span class="ja">そして、<br><em>自分の<wbr>プロダクト</em>を<wbr>作った。</span></h2>
+      <p><span class="en"><b>LeadPilot</b>: an AI assistant that answers a clinic's website visitors and books the appointment, day or night.</span><span class="ja"><b>LeadPilot</b>：クリニックのサイト訪問者の質問に答え、昼でも夜でも予約まで完了するAIアシスタント。</span></p>
+      <figure class="snap lp r">
+        <img src="img/leadpilot.jpg" alt="LeadPilot website with its chat assistant" loading="lazy">
+        <div class="bubble"><b>✓</b><span class="en">Appointment booked</span><span class="ja">予約完了</span></div>
+        <figcaption><span>LeadPilot</span><span>github.com/Heilko/leadpilot</span></figcaption>
+      </figure>
+    </section>
 
-  <article class="proj rv">
-    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/ispace.jpg" alt="Rocket launch screen of the Mission file site" loading="lazy"></div>
-    <div>
-      <div class="tag">Mission file · 2026</div>
-      <h3><span class="ja">応募のために作った、月へのウェブサイト</span><span class="en">A launch-to-the-Moon site for one application</span></h3>
-      <p><span class="ja">ispaceへの応募で、履歴書の代わりに作ったサイト。ロケットの打ち上げから、NASAの月面マップで作った3Dの月が現れます。</span><span class="en">Made for my ispace application instead of only a CV: a rocket launch that reveals a 3D Moon built from NASA's lunar maps.</span></p>
-      <a class="link" href="https://heilko.github.io/ispace/">heilko.github.io/ispace</a>
-    </div>
-  </article>
-</section>
+    <!-- 05 -->
+    <section class="step" data-i="4">
+      <div class="kick mono">05 · Madrid + Asunción</div>
+      <h2><span class="en">And I <em>sold it</em> myself.</span><span class="ja">そして、<br><em>自分で<wbr>売った</em>。</span></h2>
+      <div class="funnel">
+        <div class="fb" style="--w:100%"><b data-n="69">69</b><span class="en">clinics on my prospect list</span><span class="ja">見込み客リストのクリニック</span></div>
+        <div class="fb" style="--w:46%"><b data-n="32">32</b><span class="en">cold calls in Madrid</span><span class="ja">マドリードでのテレアポ</span></div>
+        <div class="fb" style="--w:13%"><b data-n="9">9</b><span class="en">door-to-door visits in Asunción</span><span class="ja">アスンシオンでの訪問営業</span></div>
+        <div class="fb" style="--w:7%"><b data-n="5">5</b><span class="en">clinics interested</span><span class="ja">関心を示したクリニック</span></div>
+      </div>
+      <p class="lesson"><span class="en">What it taught me: people decide when they see it working in their own business.</span><span class="ja">学んだこと：お客様は、自分の業務で動くのを見て初めて決める。</span></p>
+    </section>
 
-<section class="rv">
-  <h2><span class="ja">経歴</span><span class="en">Experience</span></h2>
-  <div class="tl">
-    <div><time>2026.06 –</time><p><b>LeadPilot</b><span class="ja">創業者（個人）。AIエージェントの開発と営業。</span><span class="en">Founder (independent). Built the AI agent and sold it.</span></p></div>
-    <div><time>2025.06 – 09</time><p><b>Blindesa S.A.</b><span class="ja">テクノロジー導入インターン（アスンシオン）。ERP・CRMベンダーを比較し、CEOにOdooを提案。</span><span class="en">Technology Implementation Intern, Asunción. Compared ERP and CRM vendors and recommended Odoo to the CEO.</span></p></div>
-    <div><time>2024 – 2025</time><p><b>Outdoors Club, IE University</b><span class="ja">クラブ役員。500名以上のクラブで、50名以上のツアーをスペイン各地で企画・引率。</span><span class="en">Club Officer. Planned and guided tours across Spain for groups of 50+ in a 500-member club.</span></p></div>
-    <div><time>2024.11 – 2025.01</time><p><b>LABS Start-Up Lab</b><span class="ja">事業創出プログラムに参加（マドリード）。</span><span class="en">Venture-building programme, Madrid.</span></p></div>
-    <div><time>2024.09 – 2028.06</time><p><b>IE University</b><span class="ja">経営学士（BBA）、マドリード。</span><span class="en">Bachelor in Business Administration, Madrid.</span></p></div>
+    <!-- 06 -->
+    <section class="step" data-i="5">
+      <div class="kick mono">06 · 2026 · Spain</div>
+      <h2><span class="en">One tool led to <em>the next</em>.</span><span class="ja">ひとつの<wbr>ツールが、<br><em>次の<wbr>ツール</em>へ。</span></h2>
+      <p><span class="en">A scanner that finds which fashion brands still pay for catalogue photos, hand-checked <b>68 of 69</b>. And a generator that turns one brand file into a full online store.</span><span class="ja">カタログ撮影にまだコストをかけているブランドを見つけるスキャナー（手作業で<b>69件中68件</b>を確認）。そして、ブランド情報1つからECサイトを丸ごと作るジェネレーター。</span></p>
+      <div class="fan">
+        <figure class="snap"><img src="img/scanner.jpg" alt="Prospect report from the catalogue scanner" loading="lazy"><figcaption><span>Catalogue scanner</span><span class="chip">68/69</span></figcaption></figure>
+        <figure class="snap"><img src="img/boutique.jpg" alt="Demo store made with Boutique Factory" loading="lazy"><figcaption><span>Boutique Factory</span><span class="chip">1 → EC</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="step" data-i="6">
+      <div class="kick mono">07 · October 2026 · Tokyo?</div>
+      <h2><span class="en">Then I aimed for <em>the Moon</em>.</span><span class="ja">そして、<br><em>月</em>を<wbr>目指した。</span></h2>
+      <p><span class="en">To apply to ispace, the lunar company in Tokyo, I built a website where a rocket launches and reveals a 3D Moon. The rocket you just launched came from there.</span><span class="ja">東京の月面探査企業ispaceに応募するため、ロケットが打ち上がり3Dの月が現れるサイトを作りました。さっきあなたが打ち上げたロケットも、そこから来ています。</span></p>
+      <figure class="snap isp">
+        <img src="img/ispace.jpg" alt="Rocket launch screen of the Mission file site" loading="lazy">
+        <figcaption><span>Mission file</span><span>heilko.github.io/ispace</span></figcaption>
+      </figure>
+      <a class="go" href="https://heilko.github.io/ispace/"><span class="en">Launch that one too</span><span class="ja">そちらも打ち上げる</span> →</a>
+    </section>
+
+    <!-- 08 -->
+    <section class="step final" data-i="7">
+      <div class="kick mono">08 · <span class="en">Next destination</span><span class="ja">次の目的地</span></div>
+      <div class="board" aria-label="Flight board">
+        <div><span><span class="en">Destination</span><span class="ja">目的地</span></span><b id="dest">TOKYO</b></div>
+        <div><span><span class="en">Departs</span><span class="ja">出発</span></span><b>2027.01</b></div>
+        <div><span><span class="en">Duration</span><span class="ja">期間</span></span><b><span class="en">6 months · full-time</span><span class="ja">6か月・フルタイム</span></b></div>
+        <div class="q"><span><span class="en">Mission</span><span class="ja">ミッション</span></span><b>? ? ?</b></div>
+      </div>
+      <h2><span class="en">What's next<span class="qm">?</span></span><span class="ja">次は、<wbr>何をする<span class="qm">？</span></span></h2>
+      <p><span class="en">January 2027, Tokyo. I know where I'm landing. <b>What I'll build there is still a question mark</b>, and the answer might be your team.</span><span class="ja">2027年1月、東京へ。着陸地点は決まりました。<b>そこで何を作るのかは、まだ「？」です。</b>その答えは、あなたのチームかもしれません。</span></p>
+      <div class="actions">
+        <a class="btn p" href="mailto:anibalflln@gmail.com?subject=Mission%20AF-27%20-%20What%27s%20next%3F"><span class="en">Help me answer it</span><span class="ja">一緒に答えを</span> →</a>
+        <a class="btn s" href="https://www.linkedin.com/in/anibal-figueredo">LinkedIn</a>
+        <a class="btn s" href="https://github.com/Heilko">GitHub</a>
+      </div>
+      <button class="again mono" id="again" type="button"><span class="en">Launch again</span><span class="ja">もう一度打ち上げる</span></button>
+    </section>
   </div>
-</section>
+</main>
+<div class="petals" id="petals" aria-hidden="true"></div>
+<footer class="mono">Aníbal Figueredo · Madrid → Tokyo · 2026</footer>
 
-<section class="two rv">
-  <div class="box">
-    <h4><span class="ja">言語</span><span class="en">Languages</span></h4>
-    <div class="bars">
-      <div><span><span class="ja">スペイン語</span><span class="en">Spanish</span></span><i style="--w:100%"></i></div>
-      <div><span><span class="ja">英語</span><span class="en">English</span></span><i style="--w:95%"></i></div>
-      <div><span><span class="ja">日本語</span><span class="en">Japanese</span></span><i style="--w:18%"></i></div>
-    </div>
-  </div>
-  <div class="box">
-    <h4><span class="ja">得意なこと</span><span class="en">What I do</span></h4>
-    <ul>
-      <li><span class="ja">営業・テレアポ・リード獲得</span><span class="en">Sales, cold calling, lead generation</span></li>
-      <li><span class="ja">HubSpot・CRM（Sales Hub認定）</span><span class="en">HubSpot and CRM (Sales Hub certified)</span></li>
-      <li><span class="ja">Python・Claude APIでのツール開発</span><span class="en">Building tools with Python and the Claude API</span></li>
-      <li><span class="ja">市場調査・見込み客リスト作成</span><span class="en">Market research and prospect lists</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="contact rv">
-  <h3><span class="ja">2027年1月から東京へ。<br>お気軽にご連絡ください。</span><span class="en">In Tokyo from January 2027.<br>Let's talk.</span></h3>
-  <div class="cta" style="margin:0">
-    <a class="btn p" href="mailto:anibalflln@gmail.com">anibalflln@gmail.com</a>
-    <a class="btn" href="https://www.linkedin.com/in/anibal-figueredo">LinkedIn</a>
-    <a class="btn" href="https://github.com/Heilko">GitHub</a>
-  </div>
-</section>
-
-<footer>© 2026 Aníbal Figueredo · Madrid</footer>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script>
-(function(){
-  var b=document.body, btns=document.querySelectorAll('.lang button');
-  function set(l){b.setAttribute('data-l',l);document.documentElement.lang=l;btns.forEach(function(x){x.classList.toggle('on',x.dataset.set===l)});try{localStorage.setItem('lang',l)}catch(e){}}
-  btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.set)})});
-  try{var s=localStorage.getItem('lang');if(s)set(s);else if(!/^ja/.test(navigator.language||''))set('en')}catch(e){}
-  document.documentElement.classList.add('js');
+(function () {
+  var html = document.documentElement, body = document.body;
+  html.classList.add('js');
+  try { history.scrollRestoration = 'manual'; } catch (e) {}
+  window.scrollTo(0, 0);
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+  var lerp = function (a, b, t) { return a + (b - a) * t; };
+  var ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+  var smooth = function (a, b, x) { var t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+
+  /* ---------- Language ---------- */
+  var lang = /^ja/i.test(navigator.language || '') ? 'ja' : 'en';
+  try { lang = localStorage.getItem('lang') || lang; } catch (e) {}
+  function setLang(l) {
+    lang = l; html.setAttribute('data-l', l); html.lang = l;
+    document.querySelectorAll('[data-set]').forEach(function (b) { b.classList.toggle('on', b.dataset.set === l); });
+    try { localStorage.setItem('lang', l); } catch (e) {}
+    if (cur === STEPS.length - 1) scramble();
+  }
+  document.querySelectorAll('[data-set]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+
+  /* ---------- Stamps (step 2) ---------- */
+  function stamp(en, ja, year, col, icon) {
+    var w = 150, h = 180, s = '<svg viewBox="0 0 150 180" role="img" aria-label="' + en + ' ' + year + '"><rect width="150" height="180" rx="4" fill="#FBF8F1"/>';
+    for (var x = 8; x < w; x += 14) s += '<circle cx="' + x + '" cy="0" r="5" fill="#0A0F24"/><circle cx="' + x + '" cy="180" r="5" fill="#0A0F24"/>';
+    for (var y = 8; y < h; y += 14) s += '<circle cx="0" cy="' + y + '" r="5" fill="#0A0F24"/><circle cx="150" cy="' + y + '" r="5" fill="#0A0F24"/>';
+    s += '<rect x="14" y="14" width="122" height="152" rx="3" fill="' + col + '" stroke="#16204A" stroke-width="3"/>';
+    s += '<g stroke="#16204A" stroke-width="3" stroke-linejoin="round" fill="#FBF8F1">' + icon + '</g>';
+    s += '<text x="75" y="140" text-anchor="middle" font-family="Bricolage Grotesque, Zen Maru Gothic, sans-serif" font-weight="800" font-size="19" fill="#16204A"><tspan class="en">' + en + '</tspan><tspan class="ja">' + ja + '</tspan></text>';
+    s += '<text x="75" y="157" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="11" letter-spacing="2" fill="#16204A">' + year + '</text></svg>';
+    return s;
+  }
+  document.getElementById('stamps').innerHTML =
+    stamp('ENGLAND', 'イギリス', '2021', '#9BD0F5', '<rect x="62" y="44" width="26" height="66"/><path d="M58 44 L75 24 L92 44 Z"/><circle cx="75" cy="62" r="8" fill="#FFD166"/><path d="M75 57 V62 H79" fill="none" stroke-width="2.5"/>') +
+    stamp('MADRID', 'マドリード', '2023', '#FF9A8D', '<circle cx="75" cy="72" r="18" fill="#FFD166"/><path d="M75 36 V46 M75 98 V108 M39 72 H49 M101 72 H111 M50 47 L57 54 M93 90 L100 97 M50 97 L57 90 M93 54 L100 47" fill="none"/>') +
+    stamp('IE · BBA', 'IE大学', '2024', '#A9E8D1', '<path d="M40 64 L75 48 L110 64 L75 80 Z"/><path d="M54 71 V90 C62 98 88 98 96 90 V71" /><path d="M106 66 V88" fill="none"/><circle cx="106" cy="92" r="4" fill="#FFD166"/>');
+
+  /* ---------- Petals (final) ---------- */
+  var petals = document.getElementById('petals');
+  for (var pi = 0; pi < 16; pi++) {
+    var sp = document.createElement('span');
+    var sz = 9 + Math.random() * 8;
+    sp.style.cssText = 'left:' + (Math.random() * 100) + '%;width:' + sz + 'px;height:' + sz + 'px;--x:' + (Math.random() * 120 - 60) + 'px;animation-duration:' + (9 + Math.random() * 9) + 's;animation-delay:' + (-Math.random() * 18) + 's;opacity:' + (.55 + Math.random() * .4);
+    petals.appendChild(sp);
+  }
+
+  /* ---------- Story steps: where the globe looks ---------- */
+  var PL = { asu: [-57.58, -25.28], uk: [-2.13, 52.59], mad: [-3.70, 40.42], bcn: [2.17, 41.39], tyo: [139.69, 35.69] };
+  var NAME = { en: { asu: 'Asunción', uk: 'England', mad: 'Madrid', bcn: 'Barcelona', tyo: 'Tokyo' },
+               ja: { asu: 'アスンシオン', uk: 'イギリス', mad: 'マドリード', bcn: 'バルセロナ', tyo: '東京' } };
+  var ID = { py: '600', gb: '826', es: '724', jp: '392' };
+  var STEPS = [
+    { c: [-57.6, -21], k: 1.0, pins: ['asu'], pulse: ['asu'], act: ['600'] },
+    { c: [-16, 42], k: 1.25, seg: [['asu', 'uk'], ['uk', 'mad']], pins: ['uk', 'mad'], pulse: ['mad'], act: ['724'] },
+    { c: [-56, -21], k: 1.2, seg: [['mad', 'asu']], pulse: ['asu'], act: ['600'] },
+    { c: [-3.7, 40.2], k: 2.6, seg: [['asu', 'mad']], pulse: ['mad'], act: ['724'] },
+    { c: [-31, 9], k: 0.95, pulse: ['mad', 'asu'], act: ['724', '600'] },
+    { c: [-1.6, 40.3], k: 3.9, pins: ['bcn'], pulse: ['mad', 'bcn'], act: ['724'] },
+    { c: [74, 30], k: 0.92, moon: 1, act: [] },
+    { c: [138.3, 36.4], k: 5.4, seg: [['mad', 'tyo']], pins: ['tyo'], act: ['392'], fin: 1 }
+  ];
+  var CHIP = [0, 2, 0, 2, 2, 2, 2, 3];
+
+  var stepsEl = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var globeCol = document.querySelector('.globe-col');
+  var routeEl = document.getElementById('route');
+  var cur = -1, counted = false;
+
+  function progress() {
+    var vh = innerHeight, L;
+    if (innerWidth <= 820) { var gb = globeCol.getBoundingClientRect().bottom; L = gb + (vh - gb) * .32; } else L = vh * .5;
+    var d = stepsEl.map(function (s) { var r = s.getBoundingClientRect(); return L - (r.top + Math.min(r.height, vh) * .36); });
+    if (d[0] < 0) return 0;
+    for (var i = 0; i < d.length - 1; i++) if (d[i] >= 0 && d[i + 1] < 0) return i + smooth(.1, .78, d[i] / (d[i] - d[i + 1]));
+    return d.length - 1;
+  }
+
+  function activate(n) {
+    if (n === cur) return;
+    cur = n;
+    stepsEl.forEach(function (s, j) { s.classList.toggle('on', j === n); });
+    var chips = routeEl.querySelectorAll('span'), c = CHIP[n];
+    chips.forEach(function (ch, j) { ch.classList.toggle('on', j === c); ch.classList.toggle('done', j < c || (j === 1 && n >= 1)); });
+    chips[3].textContent = n === STEPS.length - 1 ? 'TYO?' : '???';
+    if (n === 4) countUp();
+    body.classList.toggle('fin', n === STEPS.length - 1);
+    if (n === STEPS.length - 1) scramble();
+  }
+
+  function countUp() {
+    if (counted || reduce) return; counted = true;
+    document.querySelectorAll('[data-n]').forEach(function (el) {
+      var n = +el.dataset.n, t0 = null;
+      requestAnimationFrame(function f(t) {
+        if (t0 === null) t0 = t;
+        var k = Math.min((t - t0) / 1200, 1);
+        el.textContent = Math.round(n * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(f);
+      });
+    });
+  }
+
+  var scrT = null;
+  function scramble() {
+    var el = document.getElementById('dest'), target = lang === 'ja' ? '東京' : 'TOKYO';
+    if (reduce) { el.textContent = target; return; }
+    var pool = lang === 'ja' ? '大阪京都札幌横浜福岡神戸仙台那覇' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var t0 = performance.now(); clearInterval(scrT);
+    scrT = setInterval(function () {
+      var k = (performance.now() - t0) / 1100, out = '';
+      for (var i = 0; i < target.length; i++) out += k * target.length > i + .6 ? target[i] : pool[Math.floor(Math.random() * pool.length)];
+      el.textContent = out;
+      if (k >= 1) { clearInterval(scrT); el.textContent = target; }
+    }, 55);
+  }
+
+  /* ---------- Globe ---------- */
+  var cv = document.getElementById('globe'), ctx = cv.getContext('2d'), W = 0, H = 0;
+  function size() {
+    var r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height; cv.width = Math.round(W * d); cv.height = Math.round(H * d); ctx.setTransform(d, 0, 0, d, 0, 0);
+  }
+  size(); addEventListener('resize', function () { size(); sizeFx(); });
+
+  var G = !!(window.d3 && window.topojson);
+  var proj = G ? d3.geoOrthographic().clipAngle(90).precision(.5) : null;
+  var path = G ? d3.geoPath(proj, ctx) : null;
+  var grat = G ? d3.geoGraticule10() : null;
+  var land = null;
+  if (G) {
+    var base = 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/';
+    fetch(base + 'countries-110m.json').then(function (r) { return r.json(); }).then(function (t) {
+      land = topojson.feature(t, t.objects.countries).features;
+      return fetch(base + 'countries-50m.json');
+    }).then(function (r) { return r.json(); }).then(function (t) {
+      var fine = {}, keep = [ID.py, ID.gb, ID.es, ID.jp];
+      topojson.feature(t, t.objects.countries).features.forEach(function (f) { if (keep.indexOf(f.id) > -1) fine[f.id] = f; });
+      land = land.map(function (f) { return fine[f.id] || f; });
+    }).catch(function () {});
+  }
+
+  function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function circle(x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); }
+  var FONT = function (w, px) { return w + ' ' + px + 'px ' + (lang === 'ja' ? '"Zen Maru Gothic","Hiragino Sans",sans-serif' : '"Bricolage Grotesque","Helvetica Neue",sans-serif'); };
+
+  function label(x, y, text, fs, bg, fg) {
+    ctx.font = FONT(800, fs);
+    var w = ctx.measureText(text).width + fs * 1.2, h = fs * 1.85, bx = x - w / 2, by = y - h - fs * .95;
+    rr(bx + 3, by + 4, w, h, h / 2); ctx.fillStyle = 'rgba(3,5,15,.55)'; ctx.fill();
+    rr(bx, by, w, h, h / 2); ctx.fillStyle = bg; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#16204A'; ctx.stroke();
+    ctx.fillStyle = fg; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, x, by + h / 2 + 1);
+  }
+  function pinAt(x, y, col, pulse, t, s) {
+    if (pulse && !reduce) { var ph = (t % 1700) / 1700; ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(255,209,102,' + (1 - ph) + ')'; circle(x, y, s + ph * s * 3.2); ctx.stroke(); }
+    circle(x + 1.5, y + 2, s + 1.5); ctx.fillStyle = 'rgba(3,5,15,.6)'; ctx.fill();
+    circle(x, y, s); ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 2.2; ctx.strokeStyle = '#FBF8F1'; ctx.stroke();
+  }
+  function rocketAt(x, y, ang, s, t) {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang + Math.PI / 2); ctx.scale(s, s);
+    var fl = 1 + Math.sin(t * .05) * .18;
+    ctx.fillStyle = '#FFD166'; ctx.beginPath(); ctx.ellipse(0, 17, 5, 10 * fl, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#FF8A3D'; ctx.beginPath(); ctx.ellipse(0, 15, 3, 6 * fl, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.lineWidth = 1.8; ctx.strokeStyle = '#16204A'; ctx.lineJoin = 'round';
+    ctx.fillStyle = '#FF6B5B';
+    ctx.beginPath(); ctx.moveTo(-7, 3); ctx.lineTo(-13, 13); ctx.lineTo(-7, 11); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(7, 3); ctx.lineTo(13, 13); ctx.lineTo(7, 11); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#FBF8F1'; ctx.beginPath(); ctx.moveTo(0, -17); ctx.bezierCurveTo(9, -9, 8, 4, 7, 12); ctx.lineTo(-7, 12); ctx.bezierCurveTo(-8, 4, -9, -9, 0, -17); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#FF6B5B'; ctx.beginPath(); ctx.moveTo(0, -17); ctx.bezierCurveTo(4, -13, 6, -10, 6.6, -7); ctx.lineTo(-6.6, -7); ctx.bezierCurveTo(-6, -10, -4, -13, 0, -17); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#5AA9E6'; circle(0, -.5, 3.2); ctx.fill(); ctx.stroke();
+    ctx.restore();
+  }
+  function moonAt(x, y, r, a) {
+    ctx.save(); ctx.globalAlpha = a;
+    circle(x + r * .08 + 4, y + r * .1 + 5, r); ctx.fillStyle = 'rgba(3,5,15,.6)'; ctx.fill();
+    circle(x, y, r); ctx.fillStyle = '#DCD8CE'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#16204A'; ctx.stroke();
+    ctx.fillStyle = '#BCB7AB';
+    [[-.35, -.25, .2], [.3, -.1, .14], [-.05, .38, .17], [.38, .4, .09]].forEach(function (c) { circle(x + c[0] * r, y + c[1] * r, c[2] * r); ctx.fill(); });
+    ctx.restore();
+  }
+  function fuji(x, y, s) {
+    ctx.save(); ctx.lineJoin = 'round'; ctx.lineWidth = 2; ctx.strokeStyle = '#16204A';
+    ctx.beginPath(); ctx.moveTo(x - s, y); ctx.lineTo(x - s * .22, y - s * .82); ctx.lineTo(x + s * .22, y - s * .82); ctx.lineTo(x + s, y); ctx.closePath(); ctx.fillStyle = '#7E8FC9'; ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x - s * .22, y - s * .82); ctx.lineTo(x + s * .22, y - s * .82); ctx.lineTo(x + s * .42, y - s * .5); ctx.lineTo(x + s * .18, y - s * .58); ctx.lineTo(x, y - s * .46); ctx.lineTo(x - s * .18, y - s * .58); ctx.lineTo(x - s * .42, y - s * .5); ctx.closePath(); ctx.fillStyle = '#FBF8F1'; ctx.fill(); ctx.stroke();
+    ctx.restore();
+  }
+
+  var revealedAt = null;
+  function view(p) {
+    var i = Math.min(Math.floor(p), STEPS.length - 1), g = p - i;
+    var a = STEPS[i], b = STEPS[Math.min(i + 1, STEPS.length - 1)], e = ease(g);
+    var dl = ((b.c[0] - a.c[0] + 540) % 360) - 180;
+    var dist = G ? d3.geoDistance(a.c, b.c) : 0, dip = Math.min(.5, dist / Math.PI * .85);
+    var k = Math.exp(lerp(Math.log(a.k), Math.log(b.k), e)) * (1 - dip * Math.sin(Math.PI * e));
+    return { lon: a.c[0] + dl * e, lat: lerp(a.c[1], b.c[1], e), k: k, i: i, e: e };
+  }
+  function partial(a, b, f, n) {
+    var ip = d3.geoInterpolate(a, b), pts = [];
+    for (var j = 0; j <= n; j++) pts.push(ip(f * j / n));
+    return { type: 'LineString', coordinates: pts };
+  }
+
+  function draw(t, p) {
+    ctx.clearRect(0, 0, W, H);
+    var v = view(p), m = Math.min(W, H);
+    var rise = revealedAt === null ? 0 : (reduce ? 1 : 1 - Math.pow(1 - clamp((t - revealedAt) / 2200, 0, 1), 3));
+    var R = m * .37 * v.k * (.55 + .45 * rise), cx = W / 2, cy = H / 2 + (1 - rise) * H * .55;
+    if (innerWidth <= 820) cy += H * .04;
+
+    // glow + cartoon drop shadow
+    var gl = ctx.createRadialGradient(cx, cy, R * .9, cx, cy, R * 1.35);
+    gl.addColorStop(0, 'rgba(90,169,230,.28)'); gl.addColorStop(1, 'rgba(90,169,230,0)');
+    ctx.fillStyle = gl; circle(cx, cy, R * 1.35); ctx.fill();
+    circle(cx + 9, cy + 12, R); ctx.fillStyle = 'rgba(3,5,15,.85)'; ctx.fill();
+
+    // ocean
+    var oc = ctx.createRadialGradient(cx - R * .35, cy - R * .4, R * .1, cx, cy, R * 1.05);
+    oc.addColorStop(0, '#9AD6FA'); oc.addColorStop(1, '#3B7FD3');
+    circle(cx, cy, R); ctx.fillStyle = oc; ctx.fill();
+
+    if (G) {
+      proj.rotate([-v.lon, -v.lat]).scale(R).translate([cx, cy]);
+      ctx.beginPath(); path(grat); ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,.14)'; ctx.stroke();
+
+      // which countries are lit
+      var lastFull = v.e > .5 ? v.i + 1 : v.i, act = STEPS[Math.min(lastFull, STEPS.length - 1)].act, visited = {};
+      for (var s = 0; s <= Math.min(lastFull, STEPS.length - 1); s++) STEPS[s].act.forEach(function (id) { visited[id] = 1; });
+      if (land) {
+        ctx.beginPath(); land.forEach(function (f) { if (!visited[f.id]) path(f); }); ctx.fillStyle = '#F6E7C1'; ctx.fill();
+        land.forEach(function (f) {
+          if (!visited[f.id]) return;
+          ctx.beginPath(); path(f); ctx.fillStyle = act.indexOf(f.id) > -1 ? '#FF6B5B' : '#7ED7B5'; ctx.fill();
+        });
+        ctx.beginPath(); land.forEach(function (f) { path(f); });
+        ctx.lineWidth = clamp(.7 + v.k * .18, .8, 1.8); ctx.strokeStyle = '#16204A'; ctx.stroke();
+      }
+      // shine
+      ctx.save(); circle(cx, cy, R); ctx.clip();
+      ctx.fillStyle = 'rgba(255,255,255,.13)'; ctx.beginPath(); ctx.ellipse(cx - R * .42, cy - R * .5, R * .42, R * .2, -.6, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+      circle(cx, cy, R); ctx.lineWidth = 3.5; ctx.strokeStyle = '#16204A'; ctx.stroke();
+
+      // routes
+      var center = [v.lon, v.lat], vis = function (pt) { return d3.geoDistance(pt, center) < 1.5; };
+      ctx.lineCap = 'round'; ctx.setLineDash([2, 9]); ctx.lineWidth = 3.4; ctx.strokeStyle = '#FFD166';
+      var rocketPt = null, nextStep = STEPS[Math.min(v.i + 1, STEPS.length - 1)];
+      STEPS.forEach(function (st, si) {
+        if (!st.seg) return;
+        var f = si <= v.i ? 1 : (si === v.i + 1 ? v.e : 0);
+        if (f <= 0) return;
+        st.seg.forEach(function (sg, k) {
+          var n = st.seg.length, lf = clamp(f * n - k, 0, 1);
+          if (lf <= 0) return;
+          var a = PL[sg[0]], b = PL[sg[1]];
+          if (sg[1] === 'tyo') lf = Math.min(lf, .955);
+          ctx.beginPath(); path(partial(a, b, lf, 64)); ctx.stroke();
+          var live = si === v.i + 1 && lf > .01 && lf < .999;
+          var parked = sg[1] === 'tyo' && f > .97;
+          if (live || parked) {
+            var ip = d3.geoInterpolate(a, b), h = parked ? .955 : lf;
+            rocketPt = [ip(h), ip(Math.min(h + .01, 1))];
+          }
+        });
+      });
+      ctx.setLineDash([]);
+
+      // pins
+      var px = clamp(m * .016, 5, 9);
+      var shown = {}, pulse = (STEPS[Math.min(lastFull, STEPS.length - 1)].pulse || []);
+      for (var q = 0; q <= Math.min(lastFull, STEPS.length - 1); q++) (STEPS[q].pins || []).forEach(function (k) { shown[k] = 1; });
+      ['asu', 'uk', 'mad', 'bcn'].forEach(function (k) {
+        if (!shown[k] || !vis(PL[k])) return;
+        var xy = proj(PL[k]); pinAt(xy[0], xy[1], pulse.indexOf(k) > -1 ? '#FF6B5B' : '#16204A', pulse.indexOf(k) > -1, t, px);
+      });
+      pulse.forEach(function (k) {
+        if (k === 'tyo' || !vis(PL[k])) return;
+        var xy = proj(PL[k]); label(xy[0], xy[1] - px * .4, NAME[lang][k], clamp(m * .028, 12, 16), '#FBF8F1', '#16204A');
+      });
+
+      // moon (step 7)
+      var mo = (STEPS[v.i].moon ? 1 - v.e : 0) + (nextStep.moon && v.i + 1 < STEPS.length ? v.e : 0);
+      if (mo > .01 && rise > .5) {
+        var bobM = reduce ? 0 : Math.sin(t * .0012) * R * .03;
+        moonAt(cx + R * 1.12 - (1 - mo) * R * .3, cy - R * .78 + bobM, R * .19, clamp(mo, 0, 1));
+      }
+
+      // final: Japan close-up
+      var fin = v.i === STEPS.length - 1 ? 1 : (v.i === STEPS.length - 2 ? smooth(.55, 1, v.e) : 0);
+      if (fin > 0 && vis(PL.tyo)) {
+        ctx.save(); ctx.globalAlpha = fin;
+        var fj = proj([138.73, 35.36]); fuji(fj[0] - m * .035, fj[1] + m * .03, clamp(m * .05, 15, 34));
+        var ty = proj(PL.tyo), bob = reduce ? 0 : Math.sin(t * .003) * 5;
+        pinAt(ty[0], ty[1], '#FF6B5B', true, t, px * 1.15);
+        // the question mark
+        var fs = clamp(m * .1, 30, 62), bw = fs * 1.15, bh = fs * 1.3, bx = ty[0] - bw / 2 + fs * .45, by = ty[1] - bh - fs * .62 + bob;
+        rr(bx + 5, by + 6, bw, bh, fs * .32); ctx.fillStyle = 'rgba(3,5,15,.6)'; ctx.fill();
+        rr(bx, by, bw, bh, fs * .32); ctx.fillStyle = '#FF6B5B'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = '#16204A'; ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(bx + bw * .22, by + bh - 1); ctx.lineTo(ty[0] + 2, ty[1] - px * 1.6); ctx.lineTo(bx + bw * .5, by + bh - 1); ctx.closePath(); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#FF6B5B'; ctx.fillRect(bx + bw * .24, by + bh - 4, bw * .24, 6);
+        ctx.font = '800 ' + fs + 'px "Bricolage Grotesque","Helvetica Neue",sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#FBF8F1'; ctx.fillText('?', bx + bw / 2, by + bh / 2 + fs * .04);
+        label(ty[0] + fs * 1.5, ty[1] + fs * 1.05, NAME[lang].tyo + ' · 2027.01', clamp(m * .03, 12, 17), '#16204A', '#FBF8F1');
+        ctx.restore();
+      }
+
+      // the rocket in flight
+      if (rocketPt && vis(rocketPt[0])) {
+        var r0 = proj(rocketPt[0]), r1 = proj(rocketPt[1]);
+        if (r0 && r1) {
+          var hover = fin > .9 && !reduce ? Math.sin(t * .004) * 3 : 0;
+          rocketAt(r0[0], r0[1] + hover, Math.atan2(r1[1] - r0[1], r1[0] - r0[0]), clamp(m / 380, .75, 1.5), t);
+        }
+      }
+    } else {
+      circle(cx, cy, R); ctx.lineWidth = 3.5; ctx.strokeStyle = '#16204A'; ctx.stroke();
+    }
+  }
+
+  /* ---------- Launch pad (same rocket as heilko.github.io/ispace) ---------- */
+  var launchEl = document.getElementById('launch'), rocket = document.getElementById('rocket'), countEl = document.getElementById('count');
+  var liftAt = null, launching = false;
+  var fxC = document.getElementById('fx'), fxX = fxC.getContext('2d'), parts = [], emit = 0, lastFx = 0;
+  function sizeFx() { var d = Math.min(devicePixelRatio || 1, 2); fxC.width = innerWidth * d; fxC.height = innerHeight * d; fxX.setTransform(d, 0, 0, d, 0, 0); }
+  sizeFx();
+  function nozzle() { var r = rocket.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height * (212 / 300) }; }
+  function fx(now) {
+    var dt = Math.min((now - (lastFx || now)) / 16.7, 3); lastFx = now;
+    if (launchEl.hidden) return;
+    var n = nozzle(), groundY = innerHeight * .83;
+    if (emit === 1) for (var i = 0; i < 4; i++) parts.push({ x: n.x + (Math.random() - .5) * 20, y: groundY - 4, vx: (Math.random() < .5 ? -1 : 1) * (1.5 + Math.random() * 3.5), vy: -Math.random() * .8, r: 8 + Math.random() * 10, g: 1.012, life: 0, max: 90 + Math.random() * 60, fire: false });
+    else if (emit === 2) for (var j = 0; j < 6; j++) parts.push({ x: n.x + (Math.random() - .5) * 10, y: n.y + 30, vx: (Math.random() - .5) * 2.2, vy: 3 + Math.random() * 3, r: 6 + Math.random() * 8, g: 1.02, life: 0, max: 70 + Math.random() * 50, fire: Math.random() < .35 });
+    fxX.clearRect(0, 0, innerWidth, innerHeight);
+    for (var k = parts.length - 1; k >= 0; k--) {
+      var q = parts[k];
+      q.life += dt; q.x += q.vx * dt; q.y += q.vy * dt; q.r *= Math.pow(q.g, dt);
+      if (q.y > groundY && q.vy > 0) { q.vy *= -.15; q.vx += (Math.random() - .5) * 6; }
+      q.vx *= Math.pow(.985, dt); q.vy *= Math.pow(.97, dt);
+      var al = 1 - q.life / q.max;
+      if (al <= 0) { parts.splice(k, 1); continue; }
+      fxX.beginPath(); fxX.arc(q.x, q.y, q.r, 0, Math.PI * 2);
+      fxX.fillStyle = q.fire && q.life < 14 ? 'rgba(255,170,90,' + (al * .8) + ')' : 'rgba(210,212,222,' + (al * .22) + ')';
+      fxX.fill();
+    }
+    if (parts.length > 900) parts.splice(0, parts.length - 900);
+  }
+  function startLaunch() {
+    if (launching) return;
+    launching = true;
+    if (reduce) { reveal(); return; }
+    launchEl.classList.add('ignite'); emit = 1;
+    var n = 3, show = function (txt) { countEl.textContent = txt; countEl.classList.remove('pop'); void countEl.offsetWidth; countEl.classList.add('pop'); };
+    show(n);
+    var iv = setInterval(function () {
+      n--;
+      if (n > 0) { show(n); return; }
+      clearInterval(iv); show(lang === 'ja' ? '発射！' : 'Liftoff');
+      launchEl.classList.add('lift'); emit = 2; liftAt = performance.now();
+      setTimeout(function () { emit = 0; }, 1500);
+      setTimeout(reveal, 1050);
+    }, 650);
+  }
+  function reveal() {
+    revealedAt = performance.now();
+    body.classList.add('launched'); html.classList.add('launched'); launchEl.classList.add('gone');
+    setTimeout(function () { launchEl.hidden = true; parts = []; }, 1100);
+    setTimeout(function () { document.getElementById('top').focus({ preventScroll: true }); }, 400);
+    activate(0);
+  }
+  function relaunch() {
+    window.scrollTo(0, 0);
+    body.classList.remove('launched', 'fin'); html.classList.remove('launched');
+    launchEl.hidden = false; launchEl.classList.remove('gone', 'ignite', 'lift');
+    rocket.style.transform = ''; countEl.textContent = '';
+    liftAt = null; launching = false; emit = 0; parts = []; revealedAt = null; cur = -1;
+    stepsEl.forEach(function (s) { s.classList.remove('on'); });
+    setTimeout(function () { rocket.focus(); }, 50);
+  }
+  rocket.addEventListener('click', startLaunch);
+  document.getElementById('skip').addEventListener('click', function () { launching = true; reveal(); });
+  document.getElementById('again').addEventListener('click', relaunch);
+
+  /* ---------- Main loop ---------- */
+  var skies = document.querySelectorAll('.sky');
+  function frame(now) {
+    requestAnimationFrame(frame);
+    var p = body.classList.contains('launched') ? progress() : 0;
+    if (body.classList.contains('launched')) activate(Math.round(p));
+    skies[0].style.transform = 'translateY(' + (-scrollY * .05) + 'px)';
+    skies[1].style.transform = 'translateY(' + (-scrollY * .02) + 'px)';
+    draw(now, p);
+    fx(now);
+    if (liftAt !== null && !reduce) { var s = (now - liftAt) / 1000; rocket.style.transform = 'translate(-50%, ' + (-(40 * s + 620 * s * s)) + 'px)'; }
+  }
+  setLang(lang);
+  requestAnimationFrame(frame);
+  // heilko.github.io/#next skips straight to the last chapter
+  if (location.hash === '#next') {
+    launching = true; reveal();
+    setTimeout(function () { var s = stepsEl[stepsEl.length - 1]; window.scrollTo(0, s.offsetTop - innerHeight * .14); }, 60);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
 })();
 </script>
 </body>
