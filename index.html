@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aníbal Figueredo</title>
+<meta name="description" content="IE University student from Paraguay. I build products and sell them myself. Tokyo from January 2027.">
+<style>
+:root{--bg:#F6F4EF;--ink:#141821;--mute:#5B6170;--line:#E2DFD6;--card:#fff;--accent:#0F5E4F;--red:#C8323F;--navy:#0E1B33}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1320;--ink:#EDEFF4;--mute:#9AA3B5;--line:#263049;--card:#161C2C;--accent:#4FC3A5;--red:#FF6B78;--navy:#E8ECF5}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",-apple-system,"Segoe UI",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font-weight:800;letter-spacing:.02em}
+.lang{display:flex;border:1px solid var(--line);border-radius:30px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--mute);font:600 13px/1 -apple-system,sans-serif;padding:8px 14px;cursor:pointer}
+.lang button.on{background:var(--ink);color:var(--bg)}
+[data-l="en"] .ja,[data-l="ja"] .en{display:none}
+
+.hero{padding:56px 0 40px}
+.kick{font:700 13px/1 -apple-system,sans-serif;letter-spacing:.2em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(26px,6.8vw,64px);line-height:1.15;font-weight:800;margin-top:18px;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--red)}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--mute);max-width:640px;margin-top:20px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:7px 14px;font-size:14px}
+.pill b{color:var(--accent)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px;border:1px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--bg)}
+
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:20px 0 70px}
+.nums div{background:var(--card);padding:22px 20px}
+.nums b{display:block;font:800 clamp(30px,4vw,44px)/1 -apple-system,sans-serif;color:var(--accent)}
+.nums span{display:block;color:var(--mute);font-size:14px;margin-top:8px}
+
+h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:800;display:flex;align-items:center;gap:12px;margin-bottom:24px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+section{margin-bottom:72px}
+
+.proj{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
+.proj:nth-of-type(even) .shot{order:2}
+.shot{border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 18px 50px rgba(14,27,51,.16);border:1px solid var(--line);transition:transform .35s}
+.shot:hover{transform:translateY(-4px) rotate(-.4deg)}
+.shot .bar{height:28px;display:flex;gap:6px;align-items:center;padding-left:12px;background:var(--line)}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:var(--mute);opacity:.45}
+.shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.tag{font:700 12px/1 -apple-system,sans-serif;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.proj h3{font-size:clamp(21px,2.6vw,28px);line-height:1.35;margin:10px 0 12px}
+.proj p{color:var(--mute);font-size:15.5px}
+.proj .stat{display:flex;gap:22px;margin:16px 0}
+.proj .stat b{display:block;font:800 26px/1 -apple-system,sans-serif;color:var(--ink)}
+.proj .stat span{font-size:12.5px;color:var(--mute)}
+.lesson{border-left:3px solid var(--red);padding-left:12px;margin-top:12px;font-size:14.5px}
+.link{display:inline-block;margin-top:14px;font:600 14px/1 ui-monospace,Menlo,monospace;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+
+.tl{display:grid;gap:0}
+.tl div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.tl time{color:var(--mute);font-size:14px}
+.tl b{display:block}
+.tl span{color:var(--mute);font-size:14.5px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.box h4{font-size:16px;margin-bottom:10px}
+.bars div{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:12px;margin:10px 0;font-size:14.5px}
+.bars i{display:block;height:8px;border-radius:8px;background:var(--line);position:relative;overflow:hidden}
+.bars i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--accent);border-radius:8px}
+.box ul{list-style:none;color:var(--mute);font-size:14.5px}
+.box li{padding:5px 0}
+
+.contact{background:var(--navy);color:var(--bg);border-radius:18px;padding:44px 36px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.contact h3{font-size:clamp(22px,3vw,32px);line-height:1.3}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.p{background:var(--bg);color:var(--navy)}
+footer{color:var(--mute);font-size:13px;padding:36px 0 50px;text-align:center}
+
+@keyframes up{from{transform:translateY(14px)}to{transform:none}}
+.js .rv{animation:up .6s ease-out both}
+@media (prefers-reduced-motion:reduce){.js .rv{animation:none}.shot{transition:none}}
+@media (max-width:760px){
+ .nums{grid-template-columns:repeat(2,1fr)}
+ .proj{grid-template-columns:1fr;gap:18px}
+ .proj:nth-of-type(even) .shot{order:0}
+ .tl div{grid-template-columns:1fr;gap:4px}
+ .two{grid-template-columns:1fr}
+ .contact{padding:32px 22px}
+}
+</style>
+</head>
+<body data-l="ja">
+<div class="wrap">
+<nav>
+  <div class="logo">Aníbal Figueredo</div>
+  <div class="lang"><button data-set="ja" class="on">日本語</button><button data-set="en">EN</button></div>
+</nav>
+
+<header class="hero rv">
+  <div class="kick">Madrid → Tokyo · 2027</div>
+  <h1><span class="ja">自分でプロダクトを作り、<br><em>自分で売る。</em></span><span class="en">I build products<br><em>and sell them myself.</em></span></h1>
+  <p class="lead"><span class="ja">IE大学（マドリード）で経営学を学ぶ、パラグアイ出身の学生です。2027年1月から6か月間、東京でフルタイムのインターンシップを希望しています。それまではマドリードからリモートでも働けます。</span><span class="en">Business Administration student at IE University in Madrid, from Paraguay. Full-time in Tokyo for six months from January 2027, and available remotely from Madrid before then.</span></p>
+  <div class="pills">
+    <div class="pill"><b>ES</b> <span class="ja">ネイティブ</span><span class="en">Native</span></div>
+    <div class="pill"><b>EN</b> <span class="ja">バイリンガル</span><span class="en">Bilingual</span></div>
+    <div class="pill"><b>JP</b> <span class="ja">初級・毎日勉強中</span><span class="en">Basic, studying daily</span></div>
+    <div class="pill">Python · Claude API · HubSpot</div>
+  </div>
+  <div class="cta">
+    <a class="btn p" href="mailto:anibalflln@gmail.com"><span class="ja">メールで連絡</span><span class="en">Email me</span></a>
+    <a class="btn" href="#work"><span class="ja">実績を見る</span><span class="en">See the work</span></a>
+  </div>
+</header>
+
+<div class="nums rv">
+  <div><b>69</b><span class="ja">見込み客リスト（クリニック）</span><span class="en">clinics on my prospect list</span></div>
+  <div><b>32</b><span class="ja">テレアポ（マドリード）</span><span class="en">cold calls in Madrid</span></div>
+  <div><b>9</b><span class="ja">訪問営業（アスンシオン）</span><span class="en">in-person visits in Asunción</span></div>
+  <div><b>5</b><span class="ja">関心を示したクリニック</span><span class="en">clinics interested</span></div>
+</div>
+
+<section id="work">
+  <h2><span class="ja">実績</span><span class="en">Work</span></h2>
+
+  <article class="proj rv">
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/leadpilot.jpg" alt="LeadPilot website with the chat assistant" loading="lazy"></div>
+    <div>
+      <div class="tag">LeadPilot · 2026</div>
+      <h3><span class="ja">AI予約アシスタントを開発し、自分で営業</span><span class="en">An AI booking assistant, built and sold myself</span></h3>
+      <p><span class="ja">クリニックのウェブサイト向けのClaude搭載チャット。訪問者の質問に答え、見込み度を判定し、そのまま予約まで完了します。オーナー用ダッシュボードとWhatsApp連携付き。</span><span class="en">A Claude-powered chat for clinic websites. It answers visitors, scores each lead and books the appointment, with an owner dashboard and a WhatsApp channel.</span></p>
+      <p class="lesson"><span class="ja">学び：お客様は自分の業務で動くのを見て初めて決断する。デモとフォローアップが勝負。</span><span class="en">Lesson: customers commit once they see it working in their own business. The demo and the follow-up win the deal.</span></p>
+      <a class="link" href="https://github.com/Heilko/leadpilot">github.com/Heilko/leadpilot</a>
+    </div>
+  </article>
+
+  <article class="proj rv">
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/scanner.jpg" alt="Prospect report built for Modelia" loading="lazy"></div>
+    <div>
+      <div class="tag">Catalogue scanner · 2026</div>
+      <h3><span class="ja">AIファッション企業向けの見込み客発掘ツール</span><span class="en">A prospecting tool for an AI fashion startup</span></h3>
+      <p><span class="ja">AI画像のスタートアップModeliaのために自主開発。ファッションECサイトを巡回して商品写真を分類し、各ブランドが削減できる撮影コストを試算します。</span><span class="en">Built on spec for Modelia. It crawls fashion e-commerce sites, classifies the product photos and estimates what each brand could save on photography.</span></p>
+      <div class="stat"><div><b>68/69</b><span class="ja">手作業での分類チェック</span><span class="en">hand-checked classifier</span></div><div><b>70</b><span class="ja">調査したブランド</span><span class="en">brands sized</span></div></div>
+      <p class="lesson"><span class="ja">学び：数字を信じる前に、まずモデルを確かめる。</span><span class="en">Lesson: check the model before you trust the number.</span></p>
+      <a class="link" href="https://github.com/Heilko/catalogue-scanner">github.com/Heilko/catalogue-scanner</a>
+    </div>
+  </article>
+
+  <article class="proj rv">
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/boutique.jpg" alt="Demo boutique site made with Boutique Factory" loading="lazy"></div>
+    <div>
+      <div class="tag">Boutique Factory · 2026</div>
+      <h3><span class="ja">ブティック向けウェブサイト自動生成</span><span class="en">A website generator for small boutiques</span></h3>
+      <p><span class="ja">ブランド情報のファイル1つと写真から、Shopifyのストアフロント（リアルタイム在庫・カート・決済）付きのサイトを丸ごと生成。バルセロナのメンズブティック向けのデモも制作しました。</span><span class="en">One brand file plus photos becomes a full site with a Shopify storefront: live stock, cart and checkout. I used it for an on-spec demo for a menswear boutique in Barcelona.</span></p>
+      <a class="link" href="https://github.com/Heilko/boutique-factory">github.com/Heilko/boutique-factory</a>
+    </div>
+  </article>
+
+  <article class="proj rv">
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/ispace.jpg" alt="Rocket launch screen of the Mission file site" loading="lazy"></div>
+    <div>
+      <div class="tag">Mission file · 2026</div>
+      <h3><span class="ja">応募のために作った、月へのウェブサイト</span><span class="en">A launch-to-the-Moon site for one application</span></h3>
+      <p><span class="ja">ispaceへの応募で、履歴書の代わりに作ったサイト。ロケットの打ち上げから、NASAの月面マップで作った3Dの月が現れます。</span><span class="en">Made for my ispace application instead of only a CV: a rocket launch that reveals a 3D Moon built from NASA's lunar maps.</span></p>
+      <a class="link" href="https://heilko.github.io/ispace/">heilko.github.io/ispace</a>
+    </div>
+  </article>
+</section>
+
+<section class="rv">
+  <h2><span class="ja">経歴</span><span class="en">Experience</span></h2>
+  <div class="tl">
+    <div><time>2026.06 –</time><p><b>LeadPilot</b><span class="ja">創業者（個人）。AIエージェントの開発と営業。</span><span class="en">Founder (independent). Built the AI agent and sold it.</span></p></div>
+    <div><time>2025.06 – 09</time><p><b>Blindesa S.A.</b><span class="ja">テクノロジー導入インターン（アスンシオン）。ERP・CRMベンダーを比較し、CEOにOdooを提案。</span><span class="en">Technology Implementation Intern, Asunción. Compared ERP and CRM vendors and recommended Odoo to the CEO.</span></p></div>
+    <div><time>2024 – 2025</time><p><b>Outdoors Club, IE University</b><span class="ja">クラブ役員。500名以上のクラブで、50名以上のツアーをスペイン各地で企画・引率。</span><span class="en">Club Officer. Planned and guided tours across Spain for groups of 50+ in a 500-member club.</span></p></div>
+    <div><time>2024.11 – 2025.01</time><p><b>LABS Start-Up Lab</b><span class="ja">事業創出プログラムに参加（マドリード）。</span><span class="en">Venture-building programme, Madrid.</span></p></div>
+    <div><time>2024.09 – 2028.06</time><p><b>IE University</b><span class="ja">経営学士（BBA）、マドリード。</span><span class="en">Bachelor in Business Administration, Madrid.</span></p></div>
+  </div>
+</section>
+
+<section class="two rv">
+  <div class="box">
+    <h4><span class="ja">言語</span><span class="en">Languages</span></h4>
+    <div class="bars">
+      <div><span><span class="ja">スペイン語</span><span class="en">Spanish</span></span><i style="--w:100%"></i></div>
+      <div><span><span class="ja">英語</span><span class="en">English</span></span><i style="--w:95%"></i></div>
+      <div><span><span class="ja">日本語</span><span class="en">Japanese</span></span><i style="--w:18%"></i></div>
+    </div>
+  </div>
+  <div class="box">
+    <h4><span class="ja">得意なこと</span><span class="en">What I do</span></h4>
+    <ul>
+      <li><span class="ja">営業・テレアポ・リード獲得</span><span class="en">Sales, cold calling, lead generation</span></li>
+      <li><span class="ja">HubSpot・CRM（Sales Hub認定）</span><span class="en">HubSpot and CRM (Sales Hub certified)</span></li>
+      <li><span class="ja">Python・Claude APIでのツール開発</span><span class="en">Building tools with Python and the Claude API</span></li>
+      <li><span class="ja">市場調査・見込み客リスト作成</span><span class="en">Market research and prospect lists</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact rv">
+  <h3><span class="ja">2027年1月から東京へ。<br>お気軽にご連絡ください。</span><span class="en">In Tokyo from January 2027.<br>Let's talk.</span></h3>
+  <div class="cta" style="margin:0">
+    <a class="btn p" href="mailto:anibalflln@gmail.com">anibalflln@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/anibal-figueredo">LinkedIn</a>
+    <a class="btn" href="https://github.com/Heilko">GitHub</a>
+  </div>
+</section>
+
+<footer>© 2026 Aníbal Figueredo · Madrid</footer>
+</div>
+<script>
+(function(){
+  var b=document.body, btns=document.querySelectorAll('.lang button');
+  function set(l){b.setAttribute('data-l',l);document.documentElement.lang=l;btns.forEach(function(x){x.classList.toggle('on',x.dataset.set===l)});try{localStorage.setItem('lang',l)}catch(e){}}
+  btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.set)})});
+  try{var s=localStorage.getItem('lang');if(s)set(s);else if(!/^ja/.test(navigator.language||''))set('en')}catch(e){}
+  document.documentElement.classList.add('js');
+})();
+</script>
+</body>
+</html>
